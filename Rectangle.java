@@ -1,4 +1,3 @@
-import java.util.Objects;
 
 /**
  * Representa un objeto rectangulo que implementa las interfaces Draw y Shape
@@ -36,11 +35,32 @@ public class Rectangle implements Draw, Calculate, Cloneable, Comparable<Rectang
      * Sobreescribe al método definido en la interfaz Shape
      */
     @Override
-    public void calculateArea() {
+    public double calculateArea() {
         int base = x2 - x1;
         int altura = y2 - y1;
         this.area = base * altura;
 
-        System.out.println("El área del rectángulo es " + this.area);
+        return area;
+    }
+
+    /**
+     * sobrescribe el metodo definido en la interfaz comparable
+     *
+     */
+
+    @Override
+    public int compareTo(Rectangle objeto) {
+
+        if (objeto.calculateArea() == this.calculateArea()) {
+            return 0;
+
+        } else {
+            if (objeto.calculateArea() > this.calculateArea()) {
+                return 1;
+            } else {
+                return -1;
+            }
+        }
+
     }
 }

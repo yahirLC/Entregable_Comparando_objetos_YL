@@ -7,5 +7,5 @@
  * a distintas operaciones.
  */
 public interface Calculate {
-    void calculateArea();
+    double calculateArea();
 }

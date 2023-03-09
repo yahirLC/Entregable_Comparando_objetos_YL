@@ -1,4 +1,3 @@
-import java.util.Objects;
 
 /**
  * Representa un objeto circulo que implementa las interfaces Draw y Shape
@@ -35,8 +34,29 @@ public class Circle implements Draw, Calculate, Cloneable, Comparable<Circle> {
      * Sobreescribe al método definido en la interfaz Shape
      */
     @Override
-    public void calculateArea() {
+    public double calculateArea() {
         this.area = Math.PI * Math.sqrt(radio);
-        System.out.println("El área del círculo es " + this.area);
+        return area;
+    }
+
+    /**
+     * sobrescribe el metodo definido en la interfaz comparable
+     *
+     */
+
+    @Override
+    public int compareTo(Circle objeto) {
+
+        if (objeto.calculateArea() == this.calculateArea()) {
+            return 0;
+
+        } else {
+            if (objeto.calculateArea() > this.calculateArea()) {
+                return 1;
+            } else {
+                return -1;
+            }
+        }
+
     }
 }
